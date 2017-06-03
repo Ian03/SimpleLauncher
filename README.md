@@ -42,9 +42,8 @@
 
 
 ## Compatibility
-
 Windows XP and higher
 
 
 ## Dev
-Ian - Todos os direitos reservados
+Ian 
