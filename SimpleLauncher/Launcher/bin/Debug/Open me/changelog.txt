@@ -1,0 +1,12 @@
+================================
+Launcher Updater v0.0.1
+================================
+- Launcher criado
+- Checar versão pelo arquivo xml no servidor
+*Notificar se existe uma versão nova ao launcher - se existe Baixar
+*Notificar que não existe uma nova versão.
+- Baixar arquivo do servidor
+- Extrair arquivo
+* usei DotNetZip - testei a versão disponivel para c# mais não funcionou muito bem.
+- Deletar arquivo depois da extração completa
+- Tray icone adiconado.

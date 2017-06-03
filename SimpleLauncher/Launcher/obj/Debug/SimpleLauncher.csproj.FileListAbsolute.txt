@@ -1,0 +1,12 @@
+C:\Users\jiann\Documents\Visual Studio 2017\Projects\SimpleLauncher\Launcher\bin\Debug\SimpleLauncher.exe.config
+C:\Users\jiann\Documents\Visual Studio 2017\Projects\SimpleLauncher\Launcher\bin\Debug\SimpleLauncher.exe
+C:\Users\jiann\Documents\Visual Studio 2017\Projects\SimpleLauncher\Launcher\bin\Debug\SimpleLauncher.pdb
+C:\Users\jiann\Documents\Visual Studio 2017\Projects\SimpleLauncher\Launcher\bin\Debug\DotNetZip.dll
+C:\Users\jiann\Documents\Visual Studio 2017\Projects\SimpleLauncher\Launcher\bin\Debug\DotNetZip.xml
+C:\Users\jiann\Documents\Visual Studio 2017\Projects\SimpleLauncher\Launcher\obj\Debug\SimpleLauncher.frmMain.resources
+C:\Users\jiann\Documents\Visual Studio 2017\Projects\SimpleLauncher\Launcher\obj\Debug\SimpleLauncher.frmSettings.resources
+C:\Users\jiann\Documents\Visual Studio 2017\Projects\SimpleLauncher\Launcher\obj\Debug\SimpleLauncher.Properties.Resources.resources
+C:\Users\jiann\Documents\Visual Studio 2017\Projects\SimpleLauncher\Launcher\obj\Debug\SimpleLauncher.csproj.GenerateResource.Cache
+C:\Users\jiann\Documents\Visual Studio 2017\Projects\SimpleLauncher\Launcher\obj\Debug\SimpleLauncher.exe
+C:\Users\jiann\Documents\Visual Studio 2017\Projects\SimpleLauncher\Launcher\obj\Debug\SimpleLauncher.pdb
+C:\Users\jiann\Documents\Visual Studio 2017\Projects\SimpleLauncher\Launcher\obj\Debug\SimpleLauncher.csprojResolveAssemblyReference.cache

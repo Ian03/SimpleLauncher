@@ -1,0 +1,7 @@
+================================
+        Configuration
+================================
+version.xml host in http Serve - Direct link
+
+
+Update file format .zip - Only works in
