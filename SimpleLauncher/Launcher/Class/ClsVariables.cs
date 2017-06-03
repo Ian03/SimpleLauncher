@@ -12,13 +12,13 @@ namespace SimpleLauncher
        /// <summary>
        ///  Essa url leva a download da update esse link deve ser fixo para evitar dores de cabeça.
        /// </summary>
-       public static string Downloadurl = "https://neonn.000webhostapp.com/Downloads/Update.zip";
+       public static string Downloadurl = "https://Linkhere/Update.zip";
        /// <summary>
        /// Essa url leva e aonde checa a versão no arquivo xml do servidor HTTP
        /// para mandar uma update basta trocar o numero no
        /// <Version></Version>
        /// </summary>
-       public static string CheckxmlUrl = "https://neonn.000webhostapp.com/Downloads/version.xml";
+       public static string CheckxmlUrl = "https://Linkhere/version.xml";
        /// <summary>
        /// Pasta onde ficara o update ao lado do cliente, de preferencia a isso.
        /// </summary>
