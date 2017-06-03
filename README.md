@@ -1,40 +1,50 @@
-# SimpleLauncher
+## SimpleLauncher
+
  Simple launcher made in C # with source code
+ 
+## Project photos
+![alt tag](http://i.imgur.com/annG8qG.png)
+![alt tag](http://i.imgur.com/2mzZLOx.png)
 
-Example pictures
+## Functions
+-English:
 
-Functions
-English:
+-Check version in xml file on server
 
-> Check version in xml file on server
+-Notifies the launcher
 
-Notifies the launcher
+-Download version only on Http server
 
-Download version only on Http server
+-Extract the update
 
-Extract the update
+-Delete the update file
 
-Delete the update file
+-Taskbar icon
 
-Taskbar icon
+-Choose where the game will be installed.
 
-Choose where the game will be installed.
+## Português Brasil:
 
-Português Brasil:
+-Checar versão no arquivo xml no servidor.
 
-Checar versão no arquivo xml no servidor.
+-Notifica o launcher
 
-Notifica o launcher
+-Baixa versão apenas em Http server
 
-Baixa versão apenas em Http server
+-Extrai o atualização
 
-Extrai o atualização
+-Deletar o arquivo da atualização
 
-Deletar o arquivo da atualização
+-Ícone na barra de tarefas
 
-Ícone na barra de tarefas
-
-Escolhe onde o jogo vai ser instalado.
+-Escolhe onde o jogo vai ser instalado.
 
 
-Tutorial
+
+## Compatibility
+
+Windows XP and higher
+
+
+## Dev
+Ian - Todos os direitos reservados
