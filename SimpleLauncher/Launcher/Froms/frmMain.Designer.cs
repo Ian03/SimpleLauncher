@@ -46,6 +46,8 @@
             this.creditsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.trmCheckMaintenance = new System.Windows.Forms.Timer(this.components);
+            this.lblMaintenance = new System.Windows.Forms.Label();
             this.LauncherContextmenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -178,11 +180,28 @@
             this.exitMenu.Text = "Exit";
             this.exitMenu.Click += new System.EventHandler(this.exitMenu_Click);
             // 
+            // trmCheckMaintenance
+            // 
+            this.trmCheckMaintenance.Interval = 1000;
+            this.trmCheckMaintenance.Tick += new System.EventHandler(this.trmCheckMaintenance_Tick);
+            // 
+            // lblMaintenance
+            // 
+            this.lblMaintenance.AutoSize = true;
+            this.lblMaintenance.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaintenance.Location = new System.Drawing.Point(200, 9);
+            this.lblMaintenance.Name = "lblMaintenance";
+            this.lblMaintenance.Size = new System.Drawing.Size(233, 40);
+            this.lblMaintenance.TabIndex = 14;
+            this.lblMaintenance.Text = "Maintenance: On";
+            this.lblMaintenance.Visible = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 402);
+            this.Controls.Add(this.lblMaintenance);
             this.Controls.Add(this.lblStatus2);
             this.Controls.Add(this.lblStatus1);
             this.Controls.Add(this.StatusbarZip);
@@ -223,6 +242,8 @@
         private System.Windows.Forms.ToolStripMenuItem creditsMenu;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem exitMenu;
+        private System.Windows.Forms.Timer trmCheckMaintenance;
+        private System.Windows.Forms.Label lblMaintenance;
     }
 }
 

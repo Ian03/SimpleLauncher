@@ -46,5 +46,17 @@ namespace SimpleLauncher.Properties {
                 this["Version"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Maintenance {
+            get {
+                return ((int)(this["Maintenance"]));
+            }
+            set {
+                this["Maintenance"] = value;
+            }
+        }
     }
 }

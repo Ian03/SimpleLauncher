@@ -21,8 +21,8 @@ namespace SimpleLauncher
             //Desabilitar botão start game
             bttStarGame.Enabled = false;
 
-            // Checar versão do jogo
-            trmCheckupdate.Start();
+            //Checar se o launcher esta ok
+            trmCheckMaintenance.Start();
         }
 
         private void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
@@ -169,7 +169,6 @@ namespace SimpleLauncher
                 using (var client = new WebClient())
                 {
                     lblStatus.Text = "Status: " + "Updating...";
-                    Console.WriteLine("Updating...");
 
                     //Download here
                     WebClient wc = new WebClient();
@@ -198,6 +197,40 @@ namespace SimpleLauncher
         private void creditsMenu_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/Ian03");
+        }
+
+        private void trmCheckMaintenance_Tick(object sender, EventArgs e)
+        {
+            trmCheckMaintenance.Stop();
+            CheckMaintenance();
+        }
+
+        void CheckMaintenance()
+        {
+            XDocument doc = XDocument.Load(SimpleLauncher.ClsVariables.CheckxmlUrl);
+
+            var VersionElement = doc.Descendants("Maintenance");
+            SimpleLauncher.ClsVariables.WebVersionxml = Convert.ToInt32(string.Concat(VersionElement.Nodes()));
+
+            if (SimpleLauncher.ClsVariables.LauncherMaintenance < SimpleLauncher.ClsVariables.WebVersionxml)
+            { 
+                // MetroFramework.MetroMessageBox.Show(this, "Mesage: " + "New version availible! " + "Current Version: " + SimpleLauncher.ClsVariables.LauncherVersion + " Online Version: " + SimpleLauncher.ClsVariables.WebVersionxml, "Title: Updater", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Mesage: " + "Maintenance launcher! " , "Title: Updater", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                lblMaintenance.Visible = true;
+                lblMaintenance.Text = "Maintenance: On ";
+
+                System.Diagnostics.Process.Start(ClsVariables.MaintenanceWebsite);
+                using (var client = new WebClient())
+                {
+
+                }
+            }
+            else
+            {
+                // Checar versão do jogo
+                trmCheckupdate.Start();
+            }
         }
     }
 
