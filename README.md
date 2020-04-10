@@ -4,10 +4,9 @@
 simple launcher made to update your project easily without much headache.
  
 ## Project photos
-
-<p align="center">
-  <img http://i.imgur.com/annG8qG.png/>
-</p>
+ <p align="center"> 
+    <img src="http://i.imgur.com/annG8qG.png" alt="alternate text">
+ </p>
 
 ![alt tag](http://i.imgur.com/2mzZLOx.png)
 
