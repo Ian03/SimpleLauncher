@@ -8,14 +8,7 @@ simple launcher made to update your project easily without much headache.
  <p align="center"> 
     <img src="https://imgur.com/CyKvKT6" alt="alternate text">
  </p>
- 
-  <p align="center"> 
-    <img src="https://imgur.com/lNwxc9w" alt="alternate text">
- </p>
- 
-   <p align="center"> 
-    <img src="https://imgur.com/ug17QFJ" alt="alternate text">
- </p>
+
 
 ## Functions
 
