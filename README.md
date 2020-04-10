@@ -6,11 +6,15 @@ simple launcher made to update your project easily without much headache.
 ## Project photos
 
  <p align="center"> 
-    <img src="http://i.imgur.com/annG8qG.png" alt="alternate text">
+    <img src="https://imgur.com/CyKvKT6" alt="alternate text">
  </p>
  
   <p align="center"> 
-    <img src="http://i.imgur.com/2mzZLOx.png" alt="alternate text">
+    <img src="https://imgur.com/lNwxc9w" alt="alternate text">
+ </p>
+ 
+   <p align="center"> 
+    <img src="https://imgur.com/ug17QFJ" alt="alternate text">
  </p>
 
 ## Functions
@@ -28,6 +32,8 @@ simple launcher made to update your project easily without much headache.
 -Taskbar icon
 
 -Choose where the game will be installed.
+
+-added news system
 
 ## Compatibility
 Windows XP and higher
