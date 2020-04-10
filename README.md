@@ -5,9 +5,9 @@ simple launcher made to update your project easily without much headache.
  
 ## Project photos
 <p align="center">
-  (http://i.imgur.com/annG8qG.png)
+  ![alt tag](http://i.imgur.com/annG8qG.png)
 </p>
-![alt tag]
+
 ![alt tag](http://i.imgur.com/2mzZLOx.png)
 
 ## Functions
