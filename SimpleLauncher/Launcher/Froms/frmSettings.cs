@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 using SimpleLauncher.Properties;
 using System.Linq;
+using System;
 
 namespace SimpleLauncher
 {
@@ -16,6 +17,25 @@ namespace SimpleLauncher
 
         private void bttBrowse_Click(object sender, System.EventArgs e)
         {
+
+            OpenFolderDialog folder = new OpenFolderDialog()
+            {
+                Title = "Select destination folder",
+                AutoUpgradeEnabled = true,
+                CheckPathExists = true,
+                InitialDirectory =
+                Environment.GetFolderPath
+                (Environment.SpecialFolder.DesktopDirectory),
+                Multiselect = true,
+                RestoreDirectory = true
+            };
+            DialogResult result = folder.ShowDialog(IntPtr.Zero);
+            if (result.Equals(DialogResult.OK))
+                MessageBox.Show(folder.SelectedPath + " Paths:" + folder.SelectedPaths.Length);
+                txtLocation.Text = folder.SelectedPath;
+
+            /* Olde Code 
+            I made the switch thanks to Alain Eus Rivera 
             using (FolderBrowserDialog fbd = new FolderBrowserDialog())
             {
 
@@ -25,6 +45,7 @@ namespace SimpleLauncher
                 }
 
             }
+            */
         }
 
         private void bttOk_Click(object sender, System.EventArgs e)
@@ -56,9 +77,14 @@ namespace SimpleLauncher
 
         }
 
-        private void bttCancel_Click(object sender, System.EventArgs e)
+        private void bttclosed_Click(object sender, System.EventArgs e)
         {
             this.Close();
+        }
+
+        private void bttGithub_Click(object sender, System.EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Ian03/SimpleLauncher");
         }
     }
 }
