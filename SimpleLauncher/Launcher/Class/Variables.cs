@@ -9,10 +9,11 @@ namespace SimpleLauncher
 {
     class ClsVariables
     {
+        public static string Checknews = "https://simpleslauncher.000webhostapp.com/Updatesfiles/path.txt";
         /// <summary>
         ///  This url leads to download the update.This link must be fixed to avoid headaches.
-       /// </summary>
-       public static string Downloadurl = "https://simpleslauncher.000webhostapp.com/Updatesfiles/Update.zip";
+        /// </summary>
+        public static string Downloadurl = "https://simpleslauncher.000webhostapp.com/Updatesfiles/Update.zip";
         /// <summary>
         /// This url takes and where to check the version in the HTTP server's xml file
         /// to send an update just change the number in the

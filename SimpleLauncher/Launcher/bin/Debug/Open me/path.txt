@@ -1,0 +1,2 @@
+>Simples launcher news 0.0.1
+  -Add news system.
