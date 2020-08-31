@@ -1,7 +1,7 @@
 ## SimpleLauncher
-
-
 simple launcher made to update your project easily without much headache.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
  
 ## Project photos
 
@@ -16,6 +16,10 @@ simple launcher made to update your project easily without much headache.
    <p align="center"> 
     <img src="https://i.imgur.com/ug17QFJ.png" alt="alternate text">
  </p>
+ 
+ ## [What should it be?](#Whatshoulditbe?)
+
+a simple application to check the version of the file on the web and download as I didn't find anything with open source I made a 💘
 
 
 ## Functions
@@ -38,10 +42,6 @@ simple launcher made to update your project easily without much headache.
 
 ## Compatibility
 Windows XP and higher
-
-
-## Dev
-Ian
 
 ## license
 MIT License
