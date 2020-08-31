@@ -24,21 +24,16 @@ a simple application to check the version of the file on the web and download as
 
 ## Functions
 
+```text
 -Check version in xml file on server
-
 -Notifies the launcher
-
 -Download version only on Http server
-
 -Extract the update
-
 -Delete the update file
-
 -Taskbar icon
-
 -Choose where the game will be installed.
-
 -added news system
+```
 
 ## Compatibility
 Windows XP and higher
