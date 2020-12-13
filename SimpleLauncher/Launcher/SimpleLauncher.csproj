@@ -50,11 +50,14 @@
     <ApplicationIcon>Clound.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
+    <Reference Include="DotNetZip, Version=1.15.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.15.0\lib\net40\DotNetZip.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,6 +77,12 @@
     <Compile Include="Froms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Froms\frmMessagebox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\frmMessagebox.Designer.cs">
+      <DependentUpon>frmMessagebox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Froms\frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,9 +91,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
     <EmbeddedResource Include="Froms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\frmMessagebox.resx">
+      <DependentUpon>frmMessagebox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Froms\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
@@ -101,7 +114,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
@@ -115,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Clound.ico" />
+    <None Include="Resources\exclamation-mark.png" />
     <None Include="Resources\GitHub-Mark 25x25.png" />
     <None Include="Resources\logout.png" />
     <None Include="Resources\inside.png" />

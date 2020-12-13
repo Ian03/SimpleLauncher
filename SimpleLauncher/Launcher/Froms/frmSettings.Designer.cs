@@ -34,16 +34,16 @@
             this.lblGamelocation = new System.Windows.Forms.Label();
             this.bttOk = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.bttGithub = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblVersion = new System.Windows.Forms.Label();
             this.bttclosed = new System.Windows.Forms.Button();
-            this.bttGithub = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bttMinize = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtLocation
@@ -105,6 +105,21 @@
             this.panel2.Size = new System.Drawing.Size(145, 452);
             this.panel2.TabIndex = 12;
             // 
+            // bttGithub
+            // 
+            this.bttGithub.BackgroundImage = global::SimpleLauncher.Properties.Resources.GitHub_Mark;
+            this.bttGithub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bttGithub.FlatAppearance.BorderSize = 0;
+            this.bttGithub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttGithub.ForeColor = System.Drawing.Color.White;
+            this.bttGithub.Location = new System.Drawing.Point(3, 368);
+            this.bttGithub.Name = "bttGithub";
+            this.bttGithub.Size = new System.Drawing.Size(62, 55);
+            this.bttGithub.TabIndex = 15;
+            this.bttGithub.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bttGithub.UseVisualStyleBackColor = true;
+            this.bttGithub.Click += new System.EventHandler(this.bttGithub_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -115,6 +130,16 @@
             this.label1.Size = new System.Drawing.Size(126, 21);
             this.label1.TabIndex = 14;
             this.label1.Text = "Simple Launcher";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SimpleLauncher.Properties.Resources.CloundImg;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 70);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -148,31 +173,6 @@
             this.bttclosed.TabIndex = 13;
             this.bttclosed.UseVisualStyleBackColor = true;
             this.bttclosed.Click += new System.EventHandler(this.bttclosed_Click);
-            // 
-            // bttGithub
-            // 
-            this.bttGithub.BackgroundImage = global::SimpleLauncher.Properties.Resources.GitHub_Mark;
-            this.bttGithub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bttGithub.FlatAppearance.BorderSize = 0;
-            this.bttGithub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttGithub.ForeColor = System.Drawing.Color.White;
-            this.bttGithub.Location = new System.Drawing.Point(3, 368);
-            this.bttGithub.Name = "bttGithub";
-            this.bttGithub.Size = new System.Drawing.Size(62, 55);
-            this.bttGithub.TabIndex = 15;
-            this.bttGithub.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bttGithub.UseVisualStyleBackColor = true;
-            this.bttGithub.Click += new System.EventHandler(this.bttGithub_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SimpleLauncher.Properties.Resources.CloundImg;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 70);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
             // 
             // bttMinize
             // 
@@ -211,9 +211,9 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmSettings_MouseDown);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.trmDel = new System.Windows.Forms.Timer(this.components);
+            this.trmClean = new System.Windows.Forms.Timer(this.components);
             this.trmCheckupdate = new System.Windows.Forms.Timer(this.components);
             this.bttStarGame = new System.Windows.Forms.Button();
             this.Statusbar = new System.Windows.Forms.ProgressBar();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.StatusbarZip = new System.Windows.Forms.ProgressBar();
-            this.lblStatus1 = new System.Windows.Forms.Label();
+            this.lblSpeed = new System.Windows.Forms.Label();
             this.lblStatus2 = new System.Windows.Forms.Label();
             this.LauncherTray = new System.Windows.Forms.NotifyIcon(this.components);
             this.LauncherContextmenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -58,6 +58,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.RichNews = new System.Windows.Forms.RichTextBox();
             this.trmCheckNews = new System.Windows.Forms.Timer(this.components);
+            this.trmUpdateLauncher = new System.Windows.Forms.Timer(this.components);
+            this.lblpercent = new System.Windows.Forms.Label();
+            this.lblStatus1 = new System.Windows.Forms.Label();
+            this.lblSize = new System.Windows.Forms.Label();
             this.LauncherContextmenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -65,10 +69,10 @@
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // trmDel
+            // trmClean
             // 
-            this.trmDel.Interval = 2000;
-            this.trmDel.Tick += new System.EventHandler(this.trmDel_Tick);
+            this.trmClean.Interval = 18000;
+            this.trmClean.Tick += new System.EventHandler(this.trmClean_Tick);
             // 
             // trmCheckupdate
             // 
@@ -91,7 +95,7 @@
             // 
             // Statusbar
             // 
-            this.Statusbar.Location = new System.Drawing.Point(151, 350);
+            this.Statusbar.Location = new System.Drawing.Point(151, 371);
             this.Statusbar.Name = "Statusbar";
             this.Statusbar.Size = new System.Drawing.Size(505, 30);
             this.Statusbar.TabIndex = 7;
@@ -121,30 +125,30 @@
             // 
             // StatusbarZip
             // 
-            this.StatusbarZip.Location = new System.Drawing.Point(151, 405);
+            this.StatusbarZip.Location = new System.Drawing.Point(151, 420);
             this.StatusbarZip.Name = "StatusbarZip";
-            this.StatusbarZip.Size = new System.Drawing.Size(505, 30);
+            this.StatusbarZip.Size = new System.Drawing.Size(505, 15);
             this.StatusbarZip.TabIndex = 11;
             this.StatusbarZip.Visible = false;
             // 
-            // lblStatus1
+            // lblSpeed
             // 
-            this.lblStatus1.AutoSize = true;
-            this.lblStatus1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus1.ForeColor = System.Drawing.Color.White;
-            this.lblStatus1.Location = new System.Drawing.Point(148, 334);
-            this.lblStatus1.Name = "lblStatus1";
-            this.lblStatus1.Size = new System.Drawing.Size(64, 13);
-            this.lblStatus1.TabIndex = 12;
-            this.lblStatus1.Text = "Download:";
-            this.lblStatus1.Visible = false;
+            this.lblSpeed.AutoSize = true;
+            this.lblSpeed.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpeed.ForeColor = System.Drawing.Color.White;
+            this.lblSpeed.Location = new System.Drawing.Point(151, 338);
+            this.lblSpeed.Name = "lblSpeed";
+            this.lblSpeed.Size = new System.Drawing.Size(42, 13);
+            this.lblSpeed.TabIndex = 12;
+            this.lblSpeed.Text = "Speed:";
+            this.lblSpeed.Visible = false;
             // 
             // lblStatus2
             // 
             this.lblStatus2.AutoSize = true;
             this.lblStatus2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus2.ForeColor = System.Drawing.Color.White;
-            this.lblStatus2.Location = new System.Drawing.Point(151, 389);
+            this.lblStatus2.Location = new System.Drawing.Point(151, 404);
             this.lblStatus2.Name = "lblStatus2";
             this.lblStatus2.Size = new System.Drawing.Size(39, 13);
             this.lblStatus2.TabIndex = 13;
@@ -176,6 +180,7 @@
             this.playGameMenu.Name = "playGameMenu";
             this.playGameMenu.Size = new System.Drawing.Size(129, 22);
             this.playGameMenu.Text = "Play game";
+            this.playGameMenu.Click += new System.EventHandler(this.bttStarGame_Click);
             // 
             // optionsMenu
             // 
@@ -309,19 +314,21 @@
             this.panel3.Controls.Add(this.RichNews);
             this.panel3.Location = new System.Drawing.Point(154, 68);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(676, 243);
+            this.panel3.Size = new System.Drawing.Size(676, 254);
             this.panel3.TabIndex = 19;
             // 
             // RichNews
             // 
             this.RichNews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(25)))), ((int)(((byte)(28)))));
             this.RichNews.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RichNews.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RichNews.ForeColor = System.Drawing.Color.White;
-            this.RichNews.Location = new System.Drawing.Point(3, 3);
+            this.RichNews.Location = new System.Drawing.Point(0, 0);
             this.RichNews.Name = "RichNews";
-            this.RichNews.Size = new System.Drawing.Size(253, 237);
+            this.RichNews.Size = new System.Drawing.Size(676, 254);
             this.RichNews.TabIndex = 0;
-            this.RichNews.Text = "Hi teste";
+            this.RichNews.Text = "";
+            this.RichNews.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichNews_LinkClicked);
             // 
             // trmCheckNews
             // 
@@ -329,12 +336,56 @@
             this.trmCheckNews.Interval = 1000;
             this.trmCheckNews.Tick += new System.EventHandler(this.trmCheckNews_Tick);
             // 
+            // trmUpdateLauncher
+            // 
+            this.trmUpdateLauncher.Interval = 1000;
+            this.trmUpdateLauncher.Tick += new System.EventHandler(this.trmUpdateLauncher_Tick);
+            // 
+            // lblpercent
+            // 
+            this.lblpercent.AutoSize = true;
+            this.lblpercent.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpercent.ForeColor = System.Drawing.Color.White;
+            this.lblpercent.Location = new System.Drawing.Point(624, 404);
+            this.lblpercent.Name = "lblpercent";
+            this.lblpercent.Size = new System.Drawing.Size(23, 13);
+            this.lblpercent.TabIndex = 20;
+            this.lblpercent.Text = "0%";
+            this.lblpercent.Visible = false;
+            // 
+            // lblStatus1
+            // 
+            this.lblStatus1.AutoSize = true;
+            this.lblStatus1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus1.ForeColor = System.Drawing.Color.White;
+            this.lblStatus1.Location = new System.Drawing.Point(151, 325);
+            this.lblStatus1.Name = "lblStatus1";
+            this.lblStatus1.Size = new System.Drawing.Size(64, 13);
+            this.lblStatus1.TabIndex = 21;
+            this.lblStatus1.Text = "Download:";
+            this.lblStatus1.Visible = false;
+            // 
+            // lblSize
+            // 
+            this.lblSize.AutoSize = true;
+            this.lblSize.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSize.ForeColor = System.Drawing.Color.White;
+            this.lblSize.Location = new System.Drawing.Point(151, 351);
+            this.lblSize.Name = "lblSize";
+            this.lblSize.Size = new System.Drawing.Size(30, 13);
+            this.lblSize.TabIndex = 22;
+            this.lblSize.Text = "Size:";
+            this.lblSize.Visible = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(842, 469);
+            this.Controls.Add(this.lblSize);
+            this.Controls.Add(this.lblStatus1);
+            this.Controls.Add(this.lblpercent);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.bttMinize);
             this.Controls.Add(this.bttclosed);
@@ -342,7 +393,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblStatus2);
-            this.Controls.Add(this.lblStatus1);
+            this.Controls.Add(this.lblSpeed);
             this.Controls.Add(this.StatusbarZip);
             this.Controls.Add(this.bttStarGame);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -369,14 +420,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.Timer trmDel;
+        private System.Windows.Forms.Timer trmClean;
         private System.Windows.Forms.Timer trmCheckupdate;
         private System.Windows.Forms.Button bttStarGame;
         private System.Windows.Forms.ProgressBar Statusbar;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.ProgressBar StatusbarZip;
-        private System.Windows.Forms.Label lblStatus1;
+        private System.Windows.Forms.Label lblSpeed;
         private System.Windows.Forms.Label lblStatus2;
         private System.Windows.Forms.NotifyIcon LauncherTray;
         private System.Windows.Forms.ContextMenuStrip LauncherContextmenu;
@@ -397,6 +448,10 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RichTextBox RichNews;
         private System.Windows.Forms.Timer trmCheckNews;
+        private System.Windows.Forms.Timer trmUpdateLauncher;
+        private System.Windows.Forms.Label lblpercent;
+        private System.Windows.Forms.Label lblStatus1;
+        private System.Windows.Forms.Label lblSize;
     }
 }
 

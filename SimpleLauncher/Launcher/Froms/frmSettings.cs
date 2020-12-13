@@ -2,7 +2,8 @@
 using SimpleLauncher.Properties;
 using System.Linq;
 using System;
-
+using SimpleLauncher.Froms;
+using System.IO;
 namespace SimpleLauncher
 {
     public partial class frmSettings : Form
@@ -19,27 +20,33 @@ namespace SimpleLauncher
         public frmSettings()
         {
             InitializeComponent();
+            
+            string root = @"C:\Project_n";
 
-            txtLocation.Text = Settings.Default.GameLocation;
+            txtLocation.Text = root;
+
+            if (!Directory.Exists(root))
+                Directory.CreateDirectory(root);
+
         }
 
         private void bttBrowse_Click(object sender, System.EventArgs e)
         {
+           
 
             OpenFolderDialog folder = new OpenFolderDialog()
             {
                 Title = "Select destination folder",
-                AutoUpgradeEnabled = true,
+               AutoUpgradeEnabled = true,
                 CheckPathExists = true,
-                InitialDirectory =
-                Environment.GetFolderPath
-                (Environment.SpecialFolder.DesktopDirectory),
+                InitialDirectory = @"C:\Project_n",
                 Multiselect = true,
-                RestoreDirectory = true
+            RestoreDirectory = true
             };
             DialogResult result = folder.ShowDialog(IntPtr.Zero);
             if (result.Equals(DialogResult.OK))
-                MessageBox.Show(folder.SelectedPath + " Paths:" + folder.SelectedPaths.Length);
+
+
                 txtLocation.Text = folder.SelectedPath;
 
             /* Olde Code 
@@ -60,8 +67,8 @@ namespace SimpleLauncher
         {
             if (txtLocation.Text == "")
             {
-
-                   MessageBox.Show("Mesage: Location game empty", "Title: Config folder", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                frmMessagebox messagebox = new frmMessagebox();
+                messagebox.Show("Title: Config folder", "Location game empty! ", frmMessagebox.MessageBoxButon.OK);
             }
             else
             {
