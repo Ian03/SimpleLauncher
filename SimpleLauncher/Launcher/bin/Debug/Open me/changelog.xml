@@ -1,0 +1,36 @@
+Todas as mudancas notaveis neste projeto serao documentadas neste arquivo.
+
+[project n v0.0.1]
+Feito
+
+projeto neon town iniciado
+Contador de fps
+Interface reformulada
+Sombras dinâmicas
+Resolvido problema com desenho das sombras
+Sistema de som, musica ambiente
+Sistema de sons aprimorado com efeitos de combate etc
+Target nivel,tipo de npc agressivo passível etc,percentagem do hp
+Sistema de clima, dia,tarde,noite,amanhecer
+Sistema de nevoa
+Sistema de camera reformulado para ficar algo mais próximo de um jogo rts
+Adicionado animações barras de Vida,Mana,Experiencia
+Sistema de aura, aura da buff que podem ser compartilhados com amigos próximo
+Sombras dinâmicas ao sistema telhas da unity
+Sistema de rosto para npc
+Adicionado efeito de transparência nas texturas
+sombras dinâmicas removida da telhas da unity por vazamento de memoria, agora apenas nas texturas
+Sistema de target aprimorado, mais funcionalidades
+Adicionado habilidades
+furtividade
+buff passivo
+buff por tempo
+buff compartilhados com amigos, na mesma party, ou jogadores selecionados próximos
+Adicionado teleporte por níveis, com interface visual
+de buff da status negativo ao jogador ou npc
+Adicionado ícones para sistema de clima,tipo de npc passivo,agressivo
+
+[em desenvolvimento]
+Adicionado interação com mouse nos objetos 5%
+
+O formato é baseado em Keep a Changelog
