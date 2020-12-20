@@ -1,8 +1,8 @@
 ## SimpleLauncher
 
-[IN]simple launcher made to update your project easily without much headache.[IN]
+[IN] simple launcher made to update your project easily without much headache.
 
-[PTBR]lançador simples feito para atualizar seu projeto facilmente sem muita dor de cabeça.[PTBR]
+[PTBR]lançador simples feito para atualizar seu projeto facilmente sem muita dor de cabeça.
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
