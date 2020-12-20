@@ -1,5 +1,7 @@
 ## SimpleLauncher
+
 [IN]simple launcher made to update your project easily without much headache.[IN]
+
 [PTBR]lançador simples feito para atualizar seu projeto facilmente sem muita dor de cabeça.[PTBR]
 
 
