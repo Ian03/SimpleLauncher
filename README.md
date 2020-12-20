@@ -63,6 +63,19 @@
 
 ## [License](#license)
 
+## [library]
+
+```text
+[IN]
+DotNetZip version 1.15.0
+Thanks Alain Eus Rivera, yasirkula
+```
+
+```text
+[PTBR]
+DotNetZip versão 1.15.0
+Agredecimentos  Alain Eus Rivera, yasirkula
+```
 
 Closures is provided under the [MIT License](https://github.com/Ian03/SimpleLauncher/blob/master/LICENSE).
 
