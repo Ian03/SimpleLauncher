@@ -1,5 +1,7 @@
 ## SimpleLauncher
-simple launcher made to update your project easily without much headache.
+<IN>simple launcher made to update your project easily without much headache.</IN>
+<PTBR>lançador simples feito para atualizar seu projeto facilmente sem muita dor de cabeça.</PTBR>
+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
  
@@ -19,24 +21,44 @@ simple launcher made to update your project easily without much headache.
  
  ## [What should it be?](#Whatshoulditbe?)
 
-a simple application to check the version of the file on the web and download as I didn't find anything with open source I made a 💘
+<IN>a simple application to check the version of the file on the web and download as I didn't find anything with open source I made a 💘</IN>
+<PTBR>um aplicativo simples para verificar a versão do arquivo na web e baixar como não encontrei nada com código aberto, fiz um 💘</PTBR>
 
 
 ## Functions
 
 ```text
--Check version in xml file on server
--Notifies the launcher
--Download version only on Http server
--Extract the update
--Delete the update file
--Taskbar icon
--Choose where the game will be installed.
--added news system
+<IN>
+- Check the version in the xml file on the server
+- Notify the launcher
+- Download the version only on the Http server
+- Extract the update
+- Delete the update file
+- Taskbar icon
+- Choose where the game will be installed.
+- news system added
+- slider system with photos of the project
+</IN>
 ```
 
+ ```text
+<PTBR>
+- Verifique a versão no arquivo xml no servidor
+- Notifica o lançador
+- Baixe a versão apenas no servidor Http
+- Extraia a atualização
+- Excluir o arquivo de atualização
+- Ícone da barra de tarefas
+- Escolha onde o jogo será instalado.
+- sistema de notícias adicionado
+- sistema de slider com fotos do projeto
+</IN>
+
+ </PTBR>
+```
 ## Compatibility
-Windows XP and higher
+<IN>Windows XP and higher</IN>
+<PTBR>Windows XP e superior</PTBR>
 
 ## [License](#license)
 
