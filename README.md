@@ -59,7 +59,7 @@
 ## Compatibility
 [IN] Windows XP and higher
 
-[PTBR]Windows XP e superior
+[PTBR] Windows XP e superior
 
 ## [License](#license)
 
