@@ -2,7 +2,7 @@
 
 [IN] simple launcher made to update your project easily without much headache.
 
-[PTBR]lançador simples feito para atualizar seu projeto facilmente sem muita dor de cabeça.
+[PTBR] lançador simples feito para atualizar seu projeto facilmente sem muita dor de cabeça.
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -23,14 +23,15 @@
  
  ## [What should it be?](#Whatshoulditbe?)
 
-<IN>a simple application to check the version of the file on the web and download as I didn't find anything with open source I made a 💘</IN>
-<PTBR>um aplicativo simples para verificar a versão do arquivo na web e baixar como não encontrei nada com código aberto, fiz um 💘</PTBR>
+[IN] a simple application to check the version of the file on the web and download as I didn't find anything with open source I made a 💘
+
+[PTBR] um aplicativo simples para verificar a versão do arquivo na web e baixar como não encontrei nada com código aberto, fiz um 💘
 
 
 ## Functions
 
 ```text
-<IN>
+[IN]
 - Check the version in the xml file on the server
 - Notify the launcher
 - Download the version only on the Http server
@@ -40,11 +41,10 @@
 - Choose where the game will be installed.
 - news system added
 - slider system with photos of the project
-</IN>
 ```
 
  ```text
-<PTBR>
+[PTBR]
 - Verifique a versão no arquivo xml no servidor
 - Notifica o lançador
 - Baixe a versão apenas no servidor Http
@@ -54,13 +54,12 @@
 - Escolha onde o jogo será instalado.
 - sistema de notícias adicionado
 - sistema de slider com fotos do projeto
-</IN>
-
- </PTBR>
 ```
+
 ## Compatibility
-<IN>Windows XP and higher</IN>
-<PTBR>Windows XP e superior</PTBR>
+[IN] Windows XP and higher
+
+[PTBR]Windows XP e superior
 
 ## [License](#license)
 
