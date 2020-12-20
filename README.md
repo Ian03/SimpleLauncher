@@ -10,15 +10,15 @@
 ## Project photos
 
  <p align="center"> 
-    <img src="https://i.imgur.com/CyKvKT6.png" alt="alternate text">
+    <img src="https://i.imgur.com/qtLJkxd.png" alt="alternate text">
  </p>
  
   <p align="center"> 
-    <img src="https://i.imgur.com/lNwxc9w.png" alt="alternate text">
+    <img src="https://i.imgur.com/vgrynvN.png" alt="alternate text">
  </p>
  
    <p align="center"> 
-    <img src="https://i.imgur.com/ug17QFJ.png" alt="alternate text">
+    <img src="https://i.imgur.com/GrGZGco.png" alt="alternate text">
  </p>
  
  ## [What should it be?](#Whatshoulditbe?)
