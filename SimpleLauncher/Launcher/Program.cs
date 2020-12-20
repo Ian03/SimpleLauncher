@@ -19,16 +19,40 @@ namespace SimpleLauncher
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (string.IsNullOrEmpty(Settings.Default.GameLocation) || !Directory.Exists(Settings.Default.GameLocation))
+            if (!isStillRunning())
             {
-            
-            Application.Run(new frmSettings());
+                if (string.IsNullOrEmpty(Settings.Default.GameLocation) || !Directory.Exists(Settings.Default.GameLocation))
+                {
+
+                    Application.Run(new frmSettings());
+                }
+                else
+                {
+                    Application.Run(new frmMain());
+                }
             }
             else
             {
-             Application.Run(new frmMain());
+                MessageBox.Show("Processo anterior ainda em execução.",
+                   "Aplicativo interrompido", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                Application.Exit();
             }
 
          }
+
+        //***Uses WMI Query
+        static bool isStillRunning()
+        {
+            string processName = System.Diagnostics.Process.GetCurrentProcess().MainModule.ModuleName;
+            System.Management.ManagementObjectSearcher mos = new System.Management.ManagementObjectSearcher();
+            mos.Query.QueryString = @"SELECT * FROM Win32_Process WHERE Name = '" + processName + @"'";
+            if (mos.Get().Count > 1)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
     }
 }

@@ -8,6 +8,8 @@ using System.Diagnostics;
 using SimpleLauncher.Froms;
 using Ionic.Zip;
 using System.ComponentModel;
+using System.Drawing;
+using SimpleLauncher.Class;
 
 namespace SimpleLauncher
 {
@@ -21,6 +23,8 @@ namespace SimpleLauncher
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
+        String BoxMessage;
+        String BoxMessageDesc;
 
         public frmMain()
         {
@@ -28,16 +32,62 @@ namespace SimpleLauncher
 
             //Desabilitar botão start game
             bttStarGame.Enabled = false;
+            //
+            trmCheckMaintenance.Start();
+
+            try
+            {
+                /*
+                WebClient wc = new WebClient();
+                byte[] bytes = wc.DownloadData("url");
+                MemoryStream ms = new MemoryStream(bytes);
+                Image img = Image.FromStream(ms);
+
+                */
+
+                var request01 = WebRequest.Create(Classvariables.Slider01);
+
+                using (var response = request01.GetResponse())
+                using (var stream = response.GetResponseStream())
+                {
+                    BoxImagens.Image = Bitmap.FromStream(stream);
+
+                    BoxMessage = "Sobre o projeto";
+                    BoxMessageDesc = "Neo town vem sendo desenvolvido por mais de 2 anos só agora depois da correção de alguns bugs e " + "\r\n"
+    + "teste de alguns sistemas internos me senti à-vontade de publicar ele, e começar os teste online";
+                }
 
 
-            //Checar vessão do launcher
-            trmUpdateLauncher.Start();
-           
+            }
+            catch (Exception)
+            {
+                BoxImagens.Image = Resources.erronetwork;
+                BoxMessage = "erro 404";
+                BoxMessageDesc = "pagina não encontrada ou erro de conexão!";
+            }
+
 
         }
 
+
+
         private void bttStarGame_Click(object sender, EventArgs e)
         {
+            // NOTE: FileDownloader is IDisposable!
+            //FileDownloader fileDownloader = new FileDownloader();
+
+            // This callback is triggered for DownloadFileAsync only
+           // fileDownloader.DownloadProgressChanged += (sender, e) => Console.WriteLine("Progress changed " + e.BytesReceived + " " + e.TotalBytesToReceive);
+
+            //fileDownloader.DownloadProgressChanged += (sender2, e2) => Console.WriteLine(e2.ProgressPercentage.ToString());
+            // This callback is triggered for both DownloadFile and DownloadFileAsync
+            // fileDownloader.DownloadFileCompleted += (sender, e) => Console.WriteLine("Download completed");
+           
+            //fileDownloader.DownloadProgressChanged += new DownloadProgressChangedEventHandler(wc_DownloadProgressChanged);
+
+            //fileDownloader.DownloadFileAsync("https://drive.google.com/file/d/10vgMBi4UuR_cHWJ4juKWusmHsbd5z5b6/view?usp=sharing", @"C:\Project_n\Resorces\Project n.zip");
+
+
             
             try
             {
@@ -48,10 +98,8 @@ namespace SimpleLauncher
             catch(Exception)
             {
                 frmMessagebox messagebox = new frmMessagebox();
-                messagebox.Show("Title: Updater", "Erro ao tentar encontrar executavel do jogo ", frmMessagebox.MessageBoxButon.OK);
+                messagebox.Show("Mensagem de Erro", Color.FromArgb(255, 0, 0), Properties.Resources.Erro, "Erro ao tentar encontrar executável do jogo ", frmMessagebox.MessageBoxButon.OK);
             }
-            
-            
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -59,9 +107,8 @@ namespace SimpleLauncher
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 LauncherTray.Visible = true;
-                LauncherTray.BalloonTipText = "Your application in tray icon";
-                LauncherTray.BalloonTipIcon = ToolTipIcon.Info;
-                LauncherTray.ShowBalloonTip(1000);
+                LauncherTray.Text = "Simple Launcher";
+                ShowBalloon("Launcher", "Your application in tray icon", (ToolTipIcon)IconTip.info);
                 this.Hide();
                 e.Cancel = true;
             }
@@ -109,14 +156,14 @@ namespace SimpleLauncher
                 {
                     Directory.CreateDirectory(root);
                 }
-                XDocument doc = XDocument.Load(SimpleLauncher.ClsVariables.CheckxmlMaintenance);
+                XDocument doc = XDocument.Load(Classvariables.maintenanceurl);
 
                 var VersionElement = doc.Descendants("Version");
-                SimpleLauncher.ClsVariables.WebVersionxml = Convert.ToInt32(string.Concat(VersionElement.Nodes()));
+                Classvariables.webversionurl = Convert.ToInt32(string.Concat(VersionElement.Nodes()));
 
                 lblVersion.Text = "Version: " + Settings.Default.Version;
 
-                if (Settings.Default.Version < SimpleLauncher.ClsVariables.WebVersionxml)
+                if (Settings.Default.Version < Classvariables.webversionurl)
                 {
                     //label
                     lblStatus1.Visible = true;
@@ -135,19 +182,15 @@ namespace SimpleLauncher
                         //Download here
                         WebClient wc = new WebClient();
                         wc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(wc_DownloadProgressChanged);
-                        //  wc.DownloadFileAsync(new Uri(SimpleLauncher.ClsVariables.Downloadurl.Trim()), Settings.Default.GameLocation + "Update" + Path.GetExtension(SimpleLauncher.ClsVariables.Downloadurl));
                         wc.DownloadFileCompleted += DownloadCompleted;
-                        wc.DownloadFileAsync(new Uri(SimpleLauncher.ClsVariables.Downloadurl.Trim()), rootdownload);
+                        wc.DownloadFileAsync(new Uri(Classvariables.Downloadurl.Trim()), rootdownload);
 
                     }
                 }
                 else
                 {
                     lblStatus.Text = "Status: " + "No updates availible!";
-                    LauncherTray.Visible = true;
-                    LauncherTray.BalloonTipText = "No updates availible!";
-                    LauncherTray.ShowBalloonTip(1000);
-                    LauncherTray.Visible = false;
+                    ShowBalloon("Launcher", "No updates availible!", (ToolTipIcon)IconTip.none);
 
                     bttStarGame.Enabled = true;
                 }
@@ -155,8 +198,38 @@ namespace SimpleLauncher
             catch (Exception exe)
             {
                     frmMessagebox messagebox = new frmMessagebox();
-                    messagebox.Show("Title: Updater", exe.Message, frmMessagebox.MessageBoxButon.OK);
+                   messagebox.Show("Mensagem de Erro", Color.FromArgb(255, 0, 0), Properties.Resources.Erro, exe.Message, frmMessagebox.MessageBoxButon.OK);
             }
+        }
+
+        public enum IconTip
+        {
+            //Tool Enum
+            [Description("None")]
+            none = 0,
+            [Description("Information")]
+            info = 1,
+            [Description("Erro")]
+            erro = 2,
+            [Description("Warning")]
+            warning = 3
+        };
+
+
+
+    public static void ShowBalloon(string title, string body, ToolTipIcon IconTip)
+        {
+            //XDocument doc = XDocument.Load(SimpleLauncher.ClsVariables.CheckxmlMaintenance);
+           // ToolTipIcon Tipodeiconess = ToolTipIcon;
+
+            // Show with icon
+            NotifyIcon ni = new NotifyIcon() { Visible = true, Icon = Properties.Resources.icon };
+
+            // Timeout is deprecated since Vista
+            ni.ShowBalloonTip(0, title, body, IconTip);
+
+            // Dispose on event
+            ni.BalloonTipClosed += (sender, e) => ni.Dispose();
         }
 
         private void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
@@ -202,22 +275,29 @@ namespace SimpleLauncher
         }
         void UnZipFile()
         {
-           string root = @"C:\Temp\update.zip";
+            try
+            {
+                string root = @"C:\Temp\update.zip";
 
-           string TargetDirectory = Settings.Default.GameLocation;
+                string TargetDirectory = Settings.Default.GameLocation;
 
-            using (ZipFile zip = ZipFile.Read(root))
+                using (ZipFile zip = ZipFile.Read(root))
                 {
-                   // foreach (ZipEntry es in zip)
-                   // {
-                      // es.Extract(TargetDirectory, ExtractExistingFileAction.OverwriteSilently);  // overwrite == true
-                        zip.ExtractProgress += zip_ExtractProgress;
+                    // foreach (ZipEntry es in zip)
+                    // {
+                    // es.Extract(TargetDirectory, ExtractExistingFileAction.OverwriteSilently);  // overwrite == true
+                    zip.ExtractProgress += zip_ExtractProgress;
 
-                        zip.ExtractAll(TargetDirectory, ExtractExistingFileAction.OverwriteSilently);
-                    
-                  //  }
+                    zip.ExtractAll(TargetDirectory, ExtractExistingFileAction.OverwriteSilently);
+
+                    //  }
                 }
-
+            }
+            catch (Exception)
+            {
+                frmMessagebox messagebox = new frmMessagebox();
+                messagebox.Show("Mensagem de Erro", Color.FromArgb(255, 0, 0), Properties.Resources.Erro, "Versão web insponivel", frmMessagebox.MessageBoxButon.OK);
+            }
         }
         
         void zip_ExtractProgress(object sender, ExtractProgressEventArgs e)
@@ -247,9 +327,7 @@ namespace SimpleLauncher
                 Directory.Delete(root, true);
 
                 lblStatus.Text = "Status: " + " Full configuration!";
-                LauncherTray.Visible = true;
-                LauncherTray.BalloonTipText = "Update was successfull!";
-                LauncherTray.ShowBalloonTip(1000);
+                ShowBalloon("Launcher", "Update was successfull!", (ToolTipIcon)IconTip.info);
                 bttStarGame.Enabled = true;
                 Settings.Default.Version = Settings.Default.Version + 1;
                 Settings.Default.Save();
@@ -286,25 +364,25 @@ namespace SimpleLauncher
         {
             try
             {
-                XDocument doc = XDocument.Load(ClsVariables.CheckxmlMaintenance);
+                XDocument doc = XDocument.Load(Classvariables.maintenanceurl);
 
                 var VersionElement = doc.Descendants("Maintenance");
-                ClsVariables.WebVersionxml = Convert.ToInt32(string.Concat(VersionElement.Nodes()));
+                Classvariables.webversionurl = Convert.ToInt32(string.Concat(VersionElement.Nodes()));
 
-                if (Settings.Default.LauncherUpdate < ClsVariables.WebVersionxml)
+                if (Settings.Default.LauncherUpdate < Classvariables.webversionurl)
                 {
                     WebClient wc = new WebClient();
-                    string somestring = wc.DownloadString(ClsVariables.MaintenanceMessage);
+                    string somestring = wc.DownloadString(Classvariables.maintenancemessageurl);
 
                     // MetroFramework.MetroMessageBox.Show(this, "Mesage: " + "New version availible! " + "Current Version: " + SimpleLauncher.ClsVariables.LauncherVersion + " Online Version: " + SimpleLauncher.ClsVariables.WebVersionxml, "Title: Updater", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmMessagebox messagebox = new frmMessagebox();
-                    messagebox.Show("Title: Updater", somestring.ToString(), frmMessagebox.MessageBoxButon.OK);
+                    messagebox.Show("Mensagem de alerta", Color.FromArgb(255, 162, 0), Resources.Alert, somestring.ToString(), frmMessagebox.MessageBoxButon.OK);
 
 
                     lblMaintenance.Visible = true;
                     lblMaintenance.Text = "Maintenance: On ";
 
-                    System.Diagnostics.Process.Start(ClsVariables.MaintenanceWebsite);
+                    System.Diagnostics.Process.Start(Classvariables.Websiteurl);
                     using (var client = new WebClient())
                     {
 
@@ -319,7 +397,7 @@ namespace SimpleLauncher
             catch (Exception)
             {
                 frmMessagebox messagebox = new frmMessagebox();
-                messagebox.Show("Title: Updater", "Erro ao tentar carregar versão do jogo na web ", frmMessagebox.MessageBoxButon.OK);
+                messagebox.Show("Mensagem de Erro", Color.FromArgb(255, 0, 0), Properties.Resources.Erro, "Erro ao tentar carregar versão do jogo na web ", frmMessagebox.MessageBoxButon.OK);
             }
         }
 
@@ -329,18 +407,19 @@ namespace SimpleLauncher
             {
 
                 WebClient wc = new WebClient();
-                string somestring = wc.DownloadString(ClsVariables.Checknews);
+                string somestring = wc.DownloadString(Classvariables.Newsurl);
 
                 
                 RichNews.Text = somestring.ToString();
 
-       
+
+
             }
             catch (Exception)
             {
 
                 frmMessagebox messagebox = new frmMessagebox();
-                messagebox.Show("Title: Updater", "Erro ao tentar carregar novidades na web ", frmMessagebox.MessageBoxButon.OK);
+                messagebox.Show("Mensagem de Erro", Color.FromArgb(255, 0, 0), Properties.Resources.Erro, "Erro ao tentar carregar novidades do jogo na web ", frmMessagebox.MessageBoxButon.OK);
 
             }
  
@@ -371,50 +450,86 @@ namespace SimpleLauncher
             CheckNews();
         }
 
-        private void trmUpdateLauncher_Tick(object sender, EventArgs e)
-        {
-            trmUpdateLauncher.Stop();
-            CheckUpdateLauncher();
-        }
 
-        void CheckUpdateLauncher()
-        {
-            try
-            {
-                XDocument doc = XDocument.Load(ClsVariables.CheckxmlLauncher);
-
-                var VersionElement = doc.Descendants("LauncherUpdate");
-                ClsVariables.WebVersionLauncherxml = Convert.ToInt32(string.Concat(VersionElement.Nodes()));
-
-                if (Settings.Default.LauncherUpdate < ClsVariables.WebVersionLauncherxml)
-                {
-
-                    frmMessagebox messagebox = new frmMessagebox();
-                    messagebox.Show("Title: Updater", "Nova versão do launcher disponivel, seu launcher sera finalizado! ", frmMessagebox.MessageBoxButon.finish);
-
-                    Properties.Settings.Default.Reset();
-
-                }
-                else
-                {   //Checar versão do jogo
-                    trmCheckMaintenance.Start();
-                }
-            }
-            catch (Exception)
-            {
-                frmMessagebox messagebox = new frmMessagebox();
-                messagebox.Show("Title: Updater", "Erro ao tentar carregar versão do launcher ", frmMessagebox.MessageBoxButon.OK);
-            }
-        }
 
         private void trmClean_Tick(object sender, EventArgs e)
         {
             CleanData();
+            trmClean.Stop();
         }
 
         private void RichNews_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(e.LinkText);
+        }
+
+
+        private void BoxImagens_Paint(object sender, PaintEventArgs e)
+        {
+           
+            Graphics g = e.Graphics;
+            int RectangleWidht = 180;
+
+            Color captionBgColor = Color.FromArgb(150, 0, 0, 0);
+            g.FillRectangle(new SolidBrush(captionBgColor), new Rectangle(0, RectangleWidht, BoxImagens.Size.Width, 50));
+
+            using (Font myFont = new Font("Segoe UI", 12))
+            {
+                e.Graphics.DrawString(BoxMessage, myFont, Brushes.White, new Point(2, RectangleWidht));
+            }
+
+            using (Font myFont2 = new Font("Segoe UI", 8.5f))
+            {
+                e.Graphics.DrawString(BoxMessageDesc, myFont2, Brushes.White, new Point(2, RectangleWidht + 20));
+            }
+
+
+        }
+        private bool flag;
+        private void lblNext_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var request02 = WebRequest.Create(Classvariables.Slider02);
+
+                using (var response02 = request02.GetResponse())
+                using (var stream02 = response02.GetResponseStream())
+                {
+
+                    if (flag)
+                    {
+                        BoxImagens.Image = Bitmap.FromStream(stream02);
+                        BoxMessage = "Fonte da vida eterna";
+                        BoxMessageDesc = "Sistema que usa o sistema de aura para cura";
+
+                    }
+                    else
+                    {
+                        var request03 = WebRequest.Create(Classvariables.Slider03);
+
+                        using (var response03 = request03.GetResponse())
+                        using (var stream03 = response03.GetResponseStream())
+                        {
+
+                            BoxImagens.Image = Bitmap.FromStream(stream03);
+                            BoxMessage = "Habilidades";
+                            BoxMessageDesc = "Esse sistema consiste equilibrio no grid do jogo fazendo com que jogador sempre tenha que montar " + "\r\n"
+                                + "suas habilidades antes de enfrentar quest especificas";
+                        }
+                    }
+
+                    flag = !flag;
+
+                }
+            }
+            catch (Exception)
+            {
+                BoxImagens.Image = Resources.erronetwork;
+                BoxMessage = "erro 404";
+                BoxMessageDesc = "pagina não encontrada ou erro de conexão!";
+            }
+
         }
     }
 

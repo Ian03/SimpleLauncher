@@ -29,90 +29,103 @@ namespace SimpleLauncher.Froms
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.bttStarGame = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMessagebox));
+            this.panelcolor = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.bttfinish = new System.Windows.Forms.Button();
-            this.RichMessage = new System.Windows.Forms.RichTextBox();
+            this.Boxicon = new System.Windows.Forms.PictureBox();
+            this.lblok = new System.Windows.Forms.Label();
+            this.lblMessage = new System.Windows.Forms.Label();
+            this.lblfinish = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.Boxicon)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelcolor
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(166)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 203);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(516, 23);
-            this.panel1.TabIndex = 17;
-            // 
-            // bttStarGame
-            // 
-            this.bttStarGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(166)))));
-            this.bttStarGame.FlatAppearance.BorderSize = 0;
-            this.bttStarGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttStarGame.ForeColor = System.Drawing.Color.White;
-            this.bttStarGame.Location = new System.Drawing.Point(339, 156);
-            this.bttStarGame.Name = "bttStarGame";
-            this.bttStarGame.Size = new System.Drawing.Size(165, 41);
-            this.bttStarGame.TabIndex = 16;
-            this.bttStarGame.Text = "Ok";
-            this.bttStarGame.UseVisualStyleBackColor = false;
-            this.bttStarGame.Visible = false;
-            this.bttStarGame.Click += new System.EventHandler(this.bttStarGame_Click);
+            this.panelcolor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.panelcolor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelcolor.Location = new System.Drawing.Point(0, 0);
+            this.panelcolor.Name = "panelcolor";
+            this.panelcolor.Size = new System.Drawing.Size(10, 114);
+            this.panelcolor.TabIndex = 17;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.lblTitle.Location = new System.Drawing.Point(113, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(126, 21);
-            this.lblTitle.TabIndex = 21;
+            this.lblTitle.Size = new System.Drawing.Size(166, 30);
+            this.lblTitle.TabIndex = 23;
             this.lblTitle.Text = "Simple Launcher";
             // 
-            // bttfinish
+            // Boxicon
             // 
-            this.bttfinish.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(166)))));
-            this.bttfinish.FlatAppearance.BorderSize = 0;
-            this.bttfinish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttfinish.ForeColor = System.Drawing.Color.White;
-            this.bttfinish.Location = new System.Drawing.Point(168, 156);
-            this.bttfinish.Name = "bttfinish";
-            this.bttfinish.Size = new System.Drawing.Size(165, 41);
-            this.bttfinish.TabIndex = 22;
-            this.bttfinish.Text = "Ok";
-            this.bttfinish.UseVisualStyleBackColor = false;
-            this.bttfinish.Visible = false;
-            this.bttfinish.Click += new System.EventHandler(this.bttfinish_Click);
+            this.Boxicon.BackColor = System.Drawing.Color.Transparent;
+            this.Boxicon.Location = new System.Drawing.Point(16, 12);
+            this.Boxicon.Name = "Boxicon";
+            this.Boxicon.Size = new System.Drawing.Size(91, 86);
+            this.Boxicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Boxicon.TabIndex = 24;
+            this.Boxicon.TabStop = false;
             // 
-            // RichMessage
+            // lblok
             // 
-            this.RichMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(25)))), ((int)(((byte)(28)))));
-            this.RichMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RichMessage.ForeColor = System.Drawing.Color.White;
-            this.RichMessage.Location = new System.Drawing.Point(42, 33);
-            this.RichMessage.Name = "RichMessage";
-            this.RichMessage.Size = new System.Drawing.Size(462, 117);
-            this.RichMessage.TabIndex = 11;
-            this.RichMessage.Text = "";
+            this.lblok.AutoSize = true;
+            this.lblok.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblok.ForeColor = System.Drawing.Color.White;
+            this.lblok.Location = new System.Drawing.Point(536, 9);
+            this.lblok.Name = "lblok";
+            this.lblok.Size = new System.Drawing.Size(20, 21);
+            this.lblok.TabIndex = 25;
+            this.lblok.Text = "X";
+            this.lblok.Visible = false;
+            this.lblok.Click += new System.EventHandler(this.lblok_Click);
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage.ForeColor = System.Drawing.Color.White;
+            this.lblMessage.Location = new System.Drawing.Point(115, 39);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(400, 59);
+            this.lblMessage.TabIndex = 26;
+            this.lblMessage.Text = "fsdfsdasdas\r\ndasdas\r\ndasdasdasdasd\r\ndasdasdas\r\n";
+            // 
+            // lblfinish
+            // 
+            this.lblfinish.AutoSize = true;
+            this.lblfinish.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfinish.ForeColor = System.Drawing.Color.White;
+            this.lblfinish.Location = new System.Drawing.Point(536, 12);
+            this.lblfinish.Name = "lblfinish";
+            this.lblfinish.Size = new System.Drawing.Size(20, 21);
+            this.lblfinish.TabIndex = 27;
+            this.lblfinish.Text = "X";
+            this.lblfinish.Visible = false;
+            this.lblfinish.Click += new System.EventHandler(this.lblfinish_Click);
             // 
             // frmMessagebox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(43)))));
-            this.ClientSize = new System.Drawing.Size(516, 226);
-            this.Controls.Add(this.RichMessage);
-            this.Controls.Add(this.bttfinish);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(25)))), ((int)(((byte)(28)))));
+            this.ClientSize = new System.Drawing.Size(568, 114);
+            this.Controls.Add(this.lblMessage);
+            this.Controls.Add(this.Boxicon);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.bttStarGame);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelcolor);
+            this.Controls.Add(this.lblfinish);
+            this.Controls.Add(this.lblok);
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMessagebox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMessagebox";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmMessagebox_MouseDown);
+            ((System.ComponentModel.ISupportInitialize)(this.Boxicon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,10 +133,11 @@ namespace SimpleLauncher.Froms
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button bttStarGame;
+        private System.Windows.Forms.Panel panelcolor;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button bttfinish;
-        private System.Windows.Forms.RichTextBox RichMessage;
+        private System.Windows.Forms.PictureBox Boxicon;
+        private System.Windows.Forms.Label lblok;
+        private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.Label lblfinish;
     }
 }

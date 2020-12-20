@@ -4,6 +4,9 @@ using System.Linq;
 using System;
 using SimpleLauncher.Froms;
 using System.IO;
+using System.Drawing;
+using SimpleLauncher.Class;
+
 namespace SimpleLauncher
 {
     public partial class frmSettings : Form
@@ -36,7 +39,7 @@ namespace SimpleLauncher
 
             OpenFolderDialog folder = new OpenFolderDialog()
             {
-                Title = "Select destination folder",
+                Title = "Selecione a pasta de destino",
                AutoUpgradeEnabled = true,
                 CheckPathExists = true,
                 InitialDirectory = @"C:\Project_n",
@@ -68,7 +71,7 @@ namespace SimpleLauncher
             if (txtLocation.Text == "")
             {
                 frmMessagebox messagebox = new frmMessagebox();
-                messagebox.Show("Title: Config folder", "Location game empty! ", frmMessagebox.MessageBoxButon.OK);
+                messagebox.Show("Mensagem de Alerta", Color.FromArgb(255, 161, 0), Properties.Resources.Alert, "local de instalação vazio ", frmMessagebox.MessageBoxButon.OK);
             }
             else
             {

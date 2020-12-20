@@ -51,14 +51,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bttGithub = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.bttMinize = new System.Windows.Forms.Button();
             this.bttclosed = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblNext = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BoxImagens = new System.Windows.Forms.PictureBox();
             this.RichNews = new System.Windows.Forms.RichTextBox();
             this.trmCheckNews = new System.Windows.Forms.Timer(this.components);
-            this.trmUpdateLauncher = new System.Windows.Forms.Timer(this.components);
             this.lblpercent = new System.Windows.Forms.Label();
             this.lblStatus1 = new System.Windows.Forms.Label();
             this.lblSize = new System.Windows.Forms.Label();
@@ -67,6 +69,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BoxImagens)).BeginInit();
             this.SuspendLayout();
             // 
             // trmClean
@@ -95,9 +98,9 @@
             // 
             // Statusbar
             // 
-            this.Statusbar.Location = new System.Drawing.Point(151, 371);
+            this.Statusbar.Location = new System.Drawing.Point(100, 371);
             this.Statusbar.Name = "Statusbar";
-            this.Statusbar.Size = new System.Drawing.Size(505, 30);
+            this.Statusbar.Size = new System.Drawing.Size(556, 30);
             this.Statusbar.TabIndex = 7;
             this.Statusbar.Visible = false;
             // 
@@ -125,9 +128,9 @@
             // 
             // StatusbarZip
             // 
-            this.StatusbarZip.Location = new System.Drawing.Point(151, 420);
+            this.StatusbarZip.Location = new System.Drawing.Point(100, 420);
             this.StatusbarZip.Name = "StatusbarZip";
-            this.StatusbarZip.Size = new System.Drawing.Size(505, 15);
+            this.StatusbarZip.Size = new System.Drawing.Size(556, 15);
             this.StatusbarZip.TabIndex = 11;
             this.StatusbarZip.Visible = false;
             // 
@@ -136,7 +139,7 @@
             this.lblSpeed.AutoSize = true;
             this.lblSpeed.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSpeed.ForeColor = System.Drawing.Color.White;
-            this.lblSpeed.Location = new System.Drawing.Point(151, 338);
+            this.lblSpeed.Location = new System.Drawing.Point(102, 341);
             this.lblSpeed.Name = "lblSpeed";
             this.lblSpeed.Size = new System.Drawing.Size(42, 13);
             this.lblSpeed.TabIndex = 12;
@@ -148,7 +151,7 @@
             this.lblStatus2.AutoSize = true;
             this.lblStatus2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus2.ForeColor = System.Drawing.Color.White;
-            this.lblStatus2.Location = new System.Drawing.Point(151, 404);
+            this.lblStatus2.Location = new System.Drawing.Point(102, 404);
             this.lblStatus2.Name = "lblStatus2";
             this.lblStatus2.Size = new System.Drawing.Size(39, 13);
             this.lblStatus2.TabIndex = 13;
@@ -157,10 +160,8 @@
             // 
             // LauncherTray
             // 
-            this.LauncherTray.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.LauncherTray.ContextMenuStrip = this.LauncherContextmenu;
             this.LauncherTray.Icon = ((System.Drawing.Icon)(resources.GetObject("LauncherTray.Icon")));
-            this.LauncherTray.Text = "Launcher in tray icon";
             this.LauncherTray.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LauncherTray_MouseClick);
             this.LauncherTray.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDoubleClick);
             // 
@@ -240,12 +241,11 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(25)))), ((int)(((byte)(28)))));
             this.panel2.Controls.Add(this.bttGithub);
-            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(145, 446);
+            this.panel2.Size = new System.Drawing.Size(94, 446);
             this.panel2.TabIndex = 16;
             // 
             // bttGithub
@@ -262,35 +262,35 @@
             this.bttGithub.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bttGithub.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 98);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 21);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Simple Launcher";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SimpleLauncher.Properties.Resources.CloundImg;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 70);
+            this.pictureBox1.Size = new System.Drawing.Size(80, 70);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(100, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(166, 30);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Simple Launcher";
             // 
             // bttMinize
             // 
             this.bttMinize.FlatAppearance.BorderSize = 0;
             this.bttMinize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttMinize.Image = global::SimpleLauncher.Properties.Resources.inside;
-            this.bttMinize.Location = new System.Drawing.Point(702, 12);
+            this.bttMinize.Location = new System.Drawing.Point(765, 0);
             this.bttMinize.Name = "bttMinize";
-            this.bttMinize.Size = new System.Drawing.Size(61, 59);
+            this.bttMinize.Size = new System.Drawing.Size(33, 38);
             this.bttMinize.TabIndex = 18;
             this.bttMinize.UseVisualStyleBackColor = true;
             this.bttMinize.Click += new System.EventHandler(this.bttMinize_Click);
@@ -300,9 +300,9 @@
             this.bttclosed.FlatAppearance.BorderSize = 0;
             this.bttclosed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttclosed.Image = global::SimpleLauncher.Properties.Resources.logout;
-            this.bttclosed.Location = new System.Drawing.Point(769, 12);
+            this.bttclosed.Location = new System.Drawing.Point(804, 0);
             this.bttclosed.Name = "bttclosed";
-            this.bttclosed.Size = new System.Drawing.Size(61, 59);
+            this.bttclosed.Size = new System.Drawing.Size(31, 38);
             this.bttclosed.TabIndex = 17;
             this.bttclosed.UseVisualStyleBackColor = true;
             this.bttclosed.Click += new System.EventHandler(this.bttclosed_Click);
@@ -311,35 +311,66 @@
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(25)))), ((int)(((byte)(28)))));
+            this.panel3.Controls.Add(this.lblNext);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.BoxImagens);
             this.panel3.Controls.Add(this.RichNews);
-            this.panel3.Location = new System.Drawing.Point(154, 68);
+            this.panel3.Location = new System.Drawing.Point(100, 49);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(676, 254);
+            this.panel3.Size = new System.Drawing.Size(730, 273);
             this.panel3.TabIndex = 19;
+            // 
+            // lblNext
+            // 
+            this.lblNext.AutoSize = true;
+            this.lblNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(25)))), ((int)(((byte)(28)))));
+            this.lblNext.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.lblNext.ForeColor = System.Drawing.Color.White;
+            this.lblNext.Location = new System.Drawing.Point(522, 240);
+            this.lblNext.Name = "lblNext";
+            this.lblNext.Size = new System.Drawing.Size(27, 30);
+            this.lblNext.TabIndex = 26;
+            this.lblNext.Text = ">";
+            this.lblNext.Click += new System.EventHandler(this.lblNext_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(25)))), ((int)(((byte)(28)))));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(5, 240);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(27, 30);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "<";
+            // 
+            // BoxImagens
+            // 
+            this.BoxImagens.Location = new System.Drawing.Point(8, 9);
+            this.BoxImagens.Name = "BoxImagens";
+            this.BoxImagens.Size = new System.Drawing.Size(539, 228);
+            this.BoxImagens.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BoxImagens.TabIndex = 25;
+            this.BoxImagens.TabStop = false;
+            this.BoxImagens.Paint += new System.Windows.Forms.PaintEventHandler(this.BoxImagens_Paint);
             // 
             // RichNews
             // 
-            this.RichNews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(25)))), ((int)(((byte)(28)))));
+            this.RichNews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(43)))));
             this.RichNews.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RichNews.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RichNews.ForeColor = System.Drawing.Color.White;
-            this.RichNews.Location = new System.Drawing.Point(0, 0);
+            this.RichNews.Location = new System.Drawing.Point(553, 3);
             this.RichNews.Name = "RichNews";
-            this.RichNews.Size = new System.Drawing.Size(676, 254);
-            this.RichNews.TabIndex = 0;
+            this.RichNews.Size = new System.Drawing.Size(174, 267);
+            this.RichNews.TabIndex = 24;
             this.RichNews.Text = "";
-            this.RichNews.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichNews_LinkClicked);
             // 
             // trmCheckNews
             // 
             this.trmCheckNews.Enabled = true;
             this.trmCheckNews.Interval = 1000;
             this.trmCheckNews.Tick += new System.EventHandler(this.trmCheckNews_Tick);
-            // 
-            // trmUpdateLauncher
-            // 
-            this.trmUpdateLauncher.Interval = 1000;
-            this.trmUpdateLauncher.Tick += new System.EventHandler(this.trmUpdateLauncher_Tick);
             // 
             // lblpercent
             // 
@@ -358,7 +389,7 @@
             this.lblStatus1.AutoSize = true;
             this.lblStatus1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus1.ForeColor = System.Drawing.Color.White;
-            this.lblStatus1.Location = new System.Drawing.Point(151, 325);
+            this.lblStatus1.Location = new System.Drawing.Point(102, 328);
             this.lblStatus1.Name = "lblStatus1";
             this.lblStatus1.Size = new System.Drawing.Size(64, 13);
             this.lblStatus1.TabIndex = 21;
@@ -370,7 +401,7 @@
             this.lblSize.AutoSize = true;
             this.lblSize.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSize.ForeColor = System.Drawing.Color.White;
-            this.lblSize.Location = new System.Drawing.Point(151, 351);
+            this.lblSize.Location = new System.Drawing.Point(102, 354);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(30, 13);
             this.lblSize.TabIndex = 22;
@@ -383,6 +414,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(842, 469);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblSize);
             this.Controls.Add(this.lblStatus1);
             this.Controls.Add(this.lblpercent);
@@ -411,9 +443,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BoxImagens)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -446,12 +479,14 @@
         private System.Windows.Forms.Button bttclosed;
         private System.Windows.Forms.Button bttMinize;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RichTextBox RichNews;
         private System.Windows.Forms.Timer trmCheckNews;
-        private System.Windows.Forms.Timer trmUpdateLauncher;
         private System.Windows.Forms.Label lblpercent;
         private System.Windows.Forms.Label lblStatus1;
         private System.Windows.Forms.Label lblSize;
+        private System.Windows.Forms.RichTextBox RichNews;
+        private System.Windows.Forms.PictureBox BoxImagens;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblNext;
     }
 }
 
