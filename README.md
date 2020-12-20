@@ -63,7 +63,7 @@
 
 ## [License](#license)
 
-## [library]
+## library
 
 ```text
 [IN]
